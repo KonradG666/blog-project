@@ -52,7 +52,6 @@ def edit_entry(entry_id):
    return render_template("edit_form.html", form=form, errors=errors)
 
 @app.route("/login/", methods=['GET', 'POST'])
-@login_required
 def login():
     form = LoginForm()
     errors = None
@@ -98,4 +97,5 @@ def contact():
             title = request.form["title"]
             name = request.form["name"]
             content = request.form["email_content"]
+            flash("Message Send.", "success")
     return render_template("/contact.html")
