@@ -88,6 +88,7 @@ def delete_entry(entry_id):
     flash("Post deleted", "OK")
     return redirect(url_for('index'))
 
+
 @app.route("/contact/", methods=["GET", "POST"])
 def contact():
     form = ContactForm()
