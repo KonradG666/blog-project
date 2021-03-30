@@ -61,7 +61,7 @@ def login():
             session['logged_in'] = True
             session.permanent = True
             flash("You are now logged in.", "OK")
-            return redirect(next_url or url_for("index"))
+            return redirect(url_for("index"))
         else:
             errors = form.errors
     return render_template("login_form.html", form=form, errors=errors)
