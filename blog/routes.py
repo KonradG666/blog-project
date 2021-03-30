@@ -71,7 +71,7 @@ def logout():
     if request.method == 'POST':
         session.clear()
         flash("You are now logged out.", "OK")
-    return redirect(url_for('index'))
+    return redirect(url_for('login'))
 
 @app.route("/drafts/", methods=["GET", "POST"])
 @login_required
