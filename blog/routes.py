@@ -61,7 +61,7 @@ def login():
             session['logged_in'] = True
             session.permanent = True
             flash("You are now logged in.", "OK")
-            return redirect(next_url or url_for("login"))
+            return redirect(next_url or url_for("index"))
         else:
             errors = form.errors
     return render_template("login_form.html", form=form, errors=errors)
@@ -71,7 +71,7 @@ def logout():
     if request.method == 'POST':
         session.clear()
         flash("You are now logged out.", "OK")
-    return redirect(url_for('login'))
+    return redirect(url_for('index'))
 
 @app.route("/drafts/", methods=["GET", "POST"])
 @login_required
