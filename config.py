@@ -10,7 +10,7 @@ class Config:
             'sqlite:///' + os.path.join(BASE_DIR, 'blog.db')
     )
     if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
-        uri = SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
+        SQLALCHEMY_DATABASE_URI= SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
