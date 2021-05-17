@@ -8,6 +8,9 @@ class Config:
             os.environ.get('DATABASE_URL') or
             'sqlite:///' + os.path.join(BASE_DIR, 'blog.db')
     )
+    if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
+        uri = SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
+
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "admin")
